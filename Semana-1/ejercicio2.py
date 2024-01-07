@@ -1,3 +1,4 @@
+#Ejercicio 2 Semanal Discord
 #Programa que tiene como finalidad realizar la conversion de divisas
 
 
@@ -94,10 +95,10 @@ while True:
         print()#Salto de linea
         break
 
-
-
     else: 
         print('\n\nLa opción seleccionada no es valida')
+
+        
 
 
 
