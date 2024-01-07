@@ -4,7 +4,7 @@
 
 #Diccionario con valor de moneda actual con respecto al dolar
 valor_moneda = {
-'CLP': 888.67,
+'CLP': 890.10,
 'USD': 1,
 'ARS': 811.70,
 'EUR': 0.91,
@@ -17,11 +17,11 @@ origen_moneda = ""
 cambio_moneda = ""
 
 #Variables para Ingreso, retiro y saldo disponible
-saldo = 50
+saldo = 20
 
 while True:
 
-    print('\t.:Menú:.')
+    print('\n\n\t.:Menú:.')
     print('\n1.- Conversor de Divisas')
     print('2.- Ingresar dinero a la cuenta')
     print('3.- Retirar dinero de la cuenta')
@@ -74,15 +74,34 @@ while True:
 
 
     elif opcion == 3:
+        print("\n\nAl realizar cualquier retiro el sistema realizará un cargo del 1% por comision")
+        print('El saldo minimo para retirar es de $100 y el maximo es de $10,000')
         retirar = float(input('\n\n¿Cuanto dinero desea retirar?--> $'))
+        comision = retirar * .01 #Operación de comision por el saldo a retirar
+        saldo -= comision 
+               
         if retirar > saldo:
+            saldo += comision
             print('\nNo cuentas con los fondos suficientes en tu cuenta para realizar el retiro.')
             print()#Salto de linea
+        
+        elif retirar <100:
+            print('\n\nEl retiro mínimo son $100')
+        
+        elif retirar >10000:
+            print('\n\nEl retiro máximo $10000 por día')
+        
         else:
-            saldo -= retirar
-            print(f'Saldo disponible en la cuenta: ${saldo:.2f}')
+            saldo -= retirar            
+            print(f'La comision es de: ${comision:.2f}')
+            print(f'Saldo disponible en la cuenta: $ {saldo:.2f}')
             print()#Salto de linea
             print()#Salto de linea
+            continuar = int(input('¿Desea realizar otra operacion? --> 1-Si, 2-No:  '))
+            if continuar != 1:
+                break
+            
+
 
     elif opcion == 4:
         print(f'\n\nSaldo disponible en la cuenta: ${saldo:.2f}')
@@ -96,7 +115,7 @@ while True:
         break
 
     else: 
-        print('\n\nLa opción seleccionada no es valida')
+        print('\n\n*La opción seleccionada no es valida')
 
         
 
