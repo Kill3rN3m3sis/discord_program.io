@@ -13,17 +13,19 @@
 saldo = 2000
 user_trasfer = ''
 num_account = int
-intentos = 3
+attempt = 3
 
-while intentos > 0:
+while attempt > 0:
+    print('User: pochita')
+    print('Password: 123456')
 
-    user = (input('Enter your username: '))
+    user = (input('\n\n\nEnter your username: '))
     password = (input('Enter your password: '))
     if user == "pochita" and password == "123456":
         print('\n\n\t¡¡Granted Access!!\n\n')
         break
-    intentos = intentos -1
-    print(f'\n\n*Incorrect User or Password  \nremaining attempts {intentos}\n\n')
+    attempt = attempt -1
+    print(f'\n\n*Incorrect User or Password  \nremaining attempts {attempt}\n\n')
 else:
     print('Program termination for Exceeded Attempts')    
 
